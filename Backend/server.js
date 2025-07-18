@@ -7,7 +7,7 @@ const cors = require('cors');
 const multer = require('multer');
 const fs = require('fs');
 const app = express();
-const port = process.env.PORT || 3425;
+const port = process.env.PORT || 3650;
 
 // PostgreSQL connection with retry logic
 const poolConfig = {
@@ -73,13 +73,13 @@ const upload = multer({
 app.use(cors({
   origin: [
     process.env.FRONTEND_URL,
-    "http://54.205.85.12:3425",
+    "http://44.202.158.175:3650",
     "http://127.0.0.1:5500",
-    "http://54.205.85.12:5500",
+    "http://44.202.158.175:5500",
     "http://127.0.0.1:5501",
     "http://127.0.0.1:5503",
-    "http://54.205.85.12:8424",
-    "http://54.205.85.12:8425",
+    "http://44.202.158.175:8650",
+    "http://44.202.158.175:8651",
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -239,7 +239,7 @@ app.get('/hr', (req, res) => {
 
 // Start server
 app.listen(port, () => {
-  console.log(`Server running on http://54.205.85.12:${port}`);
+  console.log(`Server running on http://44.202.158.175:${port}`);
 });
 
 process.on('SIGINT', () => {
